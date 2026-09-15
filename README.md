@@ -1,5 +1,3 @@
-Yes — copy **everything inside this block** directly into your `README.md`. The content is based on your uploaded README draft. 
-
 # 🤖 SupportSense AI
 
 ### Intelligent Customer Support Intent Classification using Neural Networks
