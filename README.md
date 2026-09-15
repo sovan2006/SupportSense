@@ -1,4 +1,5 @@
-````markdown
+Yes — copy **everything inside this block** directly into your `README.md`. The content is based on your uploaded README draft. 
+
 # 🤖 SupportSense AI
 
 ### Intelligent Customer Support Intent Classification using Neural Networks
@@ -48,16 +49,16 @@ Manually categorizing these queries can be:
 
 **Customer Query:**
 
-```text
+
 Why was my card payment declined?
-````
+
 
 **Model Output:**
 
-```text
+
 Predicted Intent: <predicted intent>
 Confidence: <confidence score>
-```
+
 
 The actual prediction depends on the trained model.
 
@@ -65,7 +66,7 @@ The actual prediction depends on the trained model.
 
 # 🧠 Machine Learning Pipeline
 
-```text
+
 Customer Query
       │
       ▼
@@ -102,7 +103,6 @@ Word Embedding
               │
               ▼
        Intent + Confidence
-```
 
 ---
 
@@ -123,12 +123,12 @@ The project uses the **Bitext Customer Support dataset**.
 
 ### Dataset Structure
 
-```text
+
 instruction
 category
 intent
 response
-```
+
 
 The `instruction` column contains the customer's query, while the `intent` column is used as the classification target.
 
@@ -148,13 +148,13 @@ The following preprocessing steps are applied:
 
 ### Example
 
-```text
+
 Original:
 Why was my card payment declined?
 
 After preprocessing:
 why was my card payment declined
-```
+
 
 ---
 
@@ -164,11 +164,9 @@ TensorFlow/Keras `Tokenizer` is used to convert customer queries into numerical 
 
 ### Configuration
 
-```python
+
 MAX_WORDS = 10000
 MAX_LENGTH = 30
-```
-
 An `<OOV>` token is used for words that are not present in the learned vocabulary.
 
 ---
@@ -179,7 +177,6 @@ The first neural network architecture uses an embedding layer followed by global
 
 ### Architecture
 
-```text
 Input Sequence
       │
       ▼
@@ -202,11 +199,11 @@ Dropout(0.3)
       │
       ▼
 Softmax Output
-```
+
 
 ### Model Configuration
 
-```python
+
 Embedding(
     input_dim=VOCAB_SIZE,
     output_dim=128,
@@ -217,7 +214,6 @@ Dense(128, activation="relu")
 Dense(64, activation="relu")
 
 Dense(NUM_CLASSES, activation="softmax")
-```
 
 ---
 
@@ -227,7 +223,7 @@ An LSTM-based architecture was also implemented to capture sequential relationsh
 
 ### Architecture
 
-```text
+
 Input Sequence
       │
       ▼
@@ -250,7 +246,7 @@ Dropout(0.3)
       │
       ▼
 Softmax Output
-```
+
 
 ---
 
@@ -265,7 +261,7 @@ Two neural network architectures were evaluated:
 
 The model-selection pipeline automatically compares the test accuracy of both models and selects the model with the highest performance.
 
-```python
+
 model_scores = {
     "ANN": test_accuracy,
     "LSTM": lstm_test_accuracy
@@ -275,7 +271,7 @@ best_model_name = max(
     model_scores,
     key=model_scores.get
 )
-```
+
 
 The current experiment selected **ANN as the best-performing model**.
 
@@ -285,12 +281,11 @@ The current experiment selected **ANN as the best-performing model**.
 
 The following files are used for deployment:
 
-```text
 SupportSense_best_model.keras
 SupportSense_tokenizer.pkl
 SupportSense_label_encoder.pkl
 SupportSense_config.pkl
-```
+
 
 ### File Description
 
@@ -307,7 +302,7 @@ SupportSense_config.pkl
 
 When a user enters a customer query, the application follows this pipeline:
 
-```text
+
 User Query
     ↓
 Tokenizer
@@ -323,18 +318,18 @@ Softmax Probabilities
 Highest Probability Class
     ↓
 Intent + Confidence
-```
+
 
 ### Example
 
-```python
+
 intent, confidence = predict_intent(
     "Why was my card payment declined?"
 )
 
 print(intent)
 print(confidence)
-```
+
 
 ---
 
@@ -354,7 +349,6 @@ SupportSense AI includes an interactive Streamlit web interface.
 
 ### Application Flow
 
-```text
 Enter Customer Query
         ↓
 Click "Predict Intent"
@@ -366,7 +360,7 @@ Intent Classification
 Display Prediction
         ↓
 Display Confidence
-```
+
 
 ---
 
@@ -415,7 +409,6 @@ Display Confidence
 
 # 📁 Project Structure
 
-```text
 SupportSense/
 │
 ├── app.py
@@ -431,7 +424,7 @@ SupportSense/
 │
 ├── .gitignore
 └── README.md
-```
+
 
 ---
 
@@ -522,9 +515,7 @@ app.py
 
 ### Live Application
 
-```text
-https://supportsense-knjrgwx8uvhzwuxbhr98xx.streamlit.app/
-```
+[https://supportsense-knjrgwx8uvhzwuxbhr98xx.streamlit.app/](https://supportsense-knjrgwx8uvhzwuxbhr98xx.streamlit.app/)
 
 ---
 
@@ -690,3 +681,4 @@ If you find this project useful, consider giving the repository a ⭐ on GitHub.
 
 ```
 ```
+
