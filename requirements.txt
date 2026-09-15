@@ -1,4 +1,5 @@
 streamlit==1.63.0
 tensorflow==2.20.0
+tf-keras==2.20.1
 scikit-learn
 numpy<2.2
